@@ -1,0 +1,22 @@
+package com.example.ecommerceapp;
+
+import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
+
+public interface apiset {
+
+    @FormUrlEncoded
+   // @Headers("Content-Type: application/json")
+    @POST("signup.php")
+    Call<signup_response_model> getRegister(
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("password") String password,
+            @Field("mobile") String mobile,
+            @Field("address") String address
+    );
+}
