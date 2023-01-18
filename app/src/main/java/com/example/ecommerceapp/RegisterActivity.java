@@ -11,11 +11,17 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.google.common.collect.Range;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -44,21 +50,40 @@ public class RegisterActivity extends AppCompatActivity {
         regPassword = findViewById(R.id.reg_password);
         regSubmit = findViewById(R.id.reg_submit);
 
+        // using underline texts
         SpannableString already = new SpannableString("Already have an account? Login!");
         already.setSpan(new UnderlineSpan(), 25, already.length(), 0);
         alreadyLogin.setText(already);
 
+        // using validation
+        AwesomeValidation mAwesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        mAwesomeValidation.addValidation(this, R.id.reg_email, Patterns.EMAIL_ADDRESS, R.string.err_email);
+
+        mAwesomeValidation.addValidation(this, R.id.reg_password,
+                "(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}",
+                R.string.err_password);
+        mAwesomeValidation.addValidation(this, R.id.reg_mobile, "^03[0-9]{9}$", R.string.err_mobile);
+
+
+        mAwesomeValidation.addValidation(this, R.id.reg_password, RegexTemplate.NOT_EMPTY, R.string.error);
+        mAwesomeValidation.addValidation(this, R.id.reg_email, RegexTemplate.NOT_EMPTY, R.string.error);
+        mAwesomeValidation.addValidation(this, R.id.reg_mobile, RegexTemplate.NOT_EMPTY, R.string.error);
+
+
         alreadyLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent login_Activity = new Intent(RegisterActivity.this , MainActivity.class);
+                Intent login_Activity = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(login_Activity);
             }
         });
         regSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userRegister(regEmail.getText().toString(), regMobile.getText().toString(), regPassword.getText().toString());
+                if (mAwesomeValidation.validate()) {
+
+                    userRegister(regEmail.getText().toString(), regMobile.getText().toString(), regPassword.getText().toString());
+                }
             }
         });
     }
@@ -84,9 +109,19 @@ public class RegisterActivity extends AppCompatActivity {
                     regEmail.setText("");
                     regMobile.setText("");
                     regPassword.setText("");
+                    regEmail.requestFocus();
                 } else if (result.equals("exist")) {
                     tv.setVisibility(View.VISIBLE);
                     tv.setText(getResources().getString(R.string.Already_Registered));
+                    tv.setTextColor(getResources().getColor(R.color.golden));
+
+                    regEmail.setText("");
+                    regMobile.setText("");
+                    regPassword.setText("");
+                    regEmail.requestFocus();
+                } else if (result.equals("failed")) {
+                    tv.setVisibility(View.VISIBLE);
+                    tv.setText(getResources().getString(R.string.Entry_Failed));
                     tv.setTextColor(getResources().getColor(R.color.red));
 
                     regEmail.setText("");
@@ -101,7 +136,7 @@ public class RegisterActivity extends AppCompatActivity {
                 tv.setVisibility(View.VISIBLE);
                 tv.setText(getResources().getString(R.string.Went_Wrong));
                 Log.e("myerror", "onFailure: " + t.getMessage());
-                Toast.makeText(RegisterActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Failure: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
