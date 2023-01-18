@@ -25,6 +25,10 @@ public class Apicontroller {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
+<<<<<<< HEAD
+
+=======
+>>>>>>> 030e5bdf3a051ebd3487ecf87489e9e5603ba693
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create(gson))
