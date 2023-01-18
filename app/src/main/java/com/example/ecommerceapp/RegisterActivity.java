@@ -60,7 +60,6 @@ public class RegisterActivity extends AppCompatActivity {
                signup_response_model obj =response.body();
                if (obj == null) throw new AssertionError();
                String result = obj.getResponse();
-              // Toast.makeText(RegisterActivity.this, result, Toast.LENGTH_SHORT).show();
                if (result.equals("insert")) {
                    tv.setVisibility(View.VISIBLE);
                    Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
@@ -78,19 +77,12 @@ public class RegisterActivity extends AppCompatActivity {
                    regPassword.setText("");
                }
            }
-
            @Override
            public void onFailure(Call<signup_response_model> call, Throwable t) {
                tv.setVisibility(View.VISIBLE);
                tv.setText("Something Went Wrong");
                Log.e("myerror", "onFailure: " + t.getMessage());
-               Log.e("myer", "onFailure: " + Arrays.toString(t.getStackTrace()));
-               Log.e("myerro", "onFailure: " + t.getLocalizedMessage());
               Toast.makeText(RegisterActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
-
-        //       regEmail.setText("");
-         //      regMobile.setText("");
-          //     regPassword.setText("");
            }
        });
     }

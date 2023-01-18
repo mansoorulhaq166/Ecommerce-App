@@ -23,24 +23,12 @@ public class Apicontroller {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
-//        OkHttpClient client = new OkHttpClient.Builder()
-//                .addInterceptor(new Interceptor() {
-//                    @Override
-//                    public okhttp3.Response intercept(Chain chain) throws IOException {
-//                        Request request = chain.request();
-//                        okhttp3.Response response = chain.proceed(request);
-//                        Log.d("Server Response", response.body().string());
-//                        return response;
-//                    }
-//                })
-//                .build();
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
     }
-
     public static synchronized Apicontroller getInstance() {
         if (clientObject == null) {
             clientObject = new Apicontroller();
