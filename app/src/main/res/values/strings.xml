@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Ecommerce App</string>
+
+    <string name="Already_Registered">You are Already Registered!</string>
+    <string name="Registered">Successfully Registered!</string>
+    <string name="Went_Wrong">Something Went Wrong!</string>
+    <string name="Entry_Failed">Failed to Register!</string>
+    <string name="err_email">Email is not Valid</string>
+    <string name="err_password">At least 8 characters, must have one special and a number</string>
+    <string name="err_mobile">Mobile Number not valid</string>
+    <string name="error">Field is Required</string>
+
 </resources>

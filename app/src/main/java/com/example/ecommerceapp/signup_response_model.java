@@ -1,16 +1,19 @@
 package com.example.ecommerceapp;
 
 public class signup_response_model {
-    String response;
+    String message;
 
-    public signup_response_model(String response) {
-        this.response = response;
+    public signup_response_model(String message) {
+        this.message = message;
     }
-    public String getResponse() {
-        return response;
+    public signup_response_model() {
+
+    }
+    public String getMessage() {
+        return message;
     }
 
-    public void setResponse(String response) {
-        this.response = response;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

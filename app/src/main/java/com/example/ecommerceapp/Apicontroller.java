@@ -4,8 +4,10 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -23,7 +25,10 @@ public class Apicontroller {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 030e5bdf3a051ebd3487ecf87489e9e5603ba693
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create(gson))
@@ -35,7 +40,6 @@ public class Apicontroller {
         }
         return clientObject;
     }
-
     apiset getapi() {
         return retrofit.create(apiset.class);
     }
