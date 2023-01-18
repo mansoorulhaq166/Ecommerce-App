@@ -53,17 +53,18 @@ public class RegisterActivity extends AppCompatActivity {
 
         Call<signup_response_model> call = Apicontroller.getInstance()
                 .getapi()
-                .getRegister(name,email, password,mobile,address);
+                .getRegister(name,email,password,mobile,address);
        call.enqueue(new Callback<signup_response_model>() {
            @Override
            public void onResponse(@NonNull Call<signup_response_model> call, Response<signup_response_model> response) {
                signup_response_model obj =response.body();
                if (obj == null) throw new AssertionError();
-               String result = obj.getResponse();
-              // Toast.makeText(RegisterActivity.this, result, Toast.LENGTH_SHORT).show();
+            //   String result = obj.getResponse().trim();
+               String result=obj.getMessage().trim();
                if (result.equals("insert")) {
                    tv.setVisibility(View.VISIBLE);
-                   Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
+                   tv.setText("Successfully Registered");
+                  // Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
                    regEmail.setText("");
                    regMobile.setText("");
                    regPassword.setText("");
@@ -71,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                else if (result.equals("exist")) {
                    tv.setVisibility(View.VISIBLE);
                    tv.setText("You are Already Registered");
-                   Toast.makeText(RegisterActivity.this, "Already Registered", Toast.LENGTH_SHORT).show();
+                //   Toast.makeText(RegisterActivity.this, "Already Registered", Toast.LENGTH_SHORT).show();
 
                    regEmail.setText("");
                    regMobile.setText("");
@@ -84,8 +85,6 @@ public class RegisterActivity extends AppCompatActivity {
                tv.setVisibility(View.VISIBLE);
                tv.setText("Something Went Wrong");
                Log.e("myerror", "onFailure: " + t.getMessage());
-               Log.e("myer", "onFailure: " + Arrays.toString(t.getStackTrace()));
-               Log.e("myerro", "onFailure: " + t.getLocalizedMessage());
               Toast.makeText(RegisterActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
 
         //       regEmail.setText("");

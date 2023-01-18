@@ -4,8 +4,10 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -23,18 +25,8 @@ public class Apicontroller {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
-//        OkHttpClient client = new OkHttpClient.Builder()
-//                .addInterceptor(new Interceptor() {
-//                    @Override
-//                    public okhttp3.Response intercept(Chain chain) throws IOException {
-//                        Request request = chain.request();
-//                        okhttp3.Response response = chain.proceed(request);
-//                        Log.d("Server Response", response.body().string());
-//                        return response;
-//                    }
-//                })
-//                .build();
-
+     //   JsonReader jsonReader = new JsonReader(new InputStreamReader());
+     //   jsonReader.setLenient(true);
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create(gson))
