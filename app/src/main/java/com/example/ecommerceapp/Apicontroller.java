@@ -36,7 +36,7 @@ public class Apicontroller {
         }
         return clientObject;
     }
-    apiset getapi() {
+    public apiset getapi() {
         return retrofit.create(apiset.class);
     }
 }

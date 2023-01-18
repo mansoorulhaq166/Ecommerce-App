@@ -1,11 +1,8 @@
-package com.example.ecommerceapp;
-
-import static android.content.ContentValues.TAG;
+package com.example.ecommerceapp.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -21,15 +18,15 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
-import com.google.common.collect.Range;
+import com.example.ecommerceapp.Apicontroller;
+import com.example.ecommerceapp.R;
+import com.example.ecommerceapp.Model.signup_response_model;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Headers;
 
 public class RegisterActivity extends AppCompatActivity {
 

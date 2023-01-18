@@ -5,24 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
 
     <TextView
         android:id="@+id/sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         android:text="Login"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="bold" />
+    <TextView
+        android:id="@+id/signin_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sign_in"
+        android:layout_marginTop="10dp"
+        android:text="Sign In to Continue"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:alpha="0.8"
+        android:textSize="18sp"
+        />
 
     <EditText
         android:id="@+id/enter_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/sign_in"
+        android:layout_below="@id/signin_report"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="95dp"
         android:layout_marginRight="12dp"
@@ -46,6 +58,8 @@
         android:layout_marginRight="12dp"
         android:background="@drawable/edit_text_bg"
         android:drawableLeft="@drawable/baseline_security"
+        android:drawableRight="@drawable/password_show"
+
         android:drawablePadding="15dp"
         android:hint="Password"
         android:inputType="textPassword"

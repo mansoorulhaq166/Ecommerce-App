@@ -1,4 +1,4 @@
-package com.example.ecommerceapp;
+package com.example.ecommerceapp.Model;
 
 public class signup_response_model {
     String message;
