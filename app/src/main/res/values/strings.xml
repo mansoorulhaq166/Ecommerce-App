@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Ecommerce App</string>
+
+    <string name="Already_Registered">You are Already Registered!</string>
+    <string name="Registered">Successfully Registered!</string>
+    <string name="Went_Wrong">Something Went Wrong!</string>
 </resources>

@@ -25,21 +25,17 @@ public class Apicontroller {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
-     //   JsonReader jsonReader = new JsonReader(new InputStreamReader());
-     //   jsonReader.setLenient(true);
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
     }
-
     public static synchronized Apicontroller getInstance() {
         if (clientObject == null) {
             clientObject = new Apicontroller();
         }
         return clientObject;
     }
-
     apiset getapi() {
         return retrofit.create(apiset.class);
     }

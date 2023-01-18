@@ -10,7 +10,6 @@ import retrofit2.http.POST;
 public interface apiset {
 
     @FormUrlEncoded
- //   @Headers("Content-Type: application/json")
     @POST("signup.php")
     Call<signup_response_model> getRegister(
             @Field("name") String name,
