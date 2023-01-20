@@ -1,4 +1,4 @@
-package com.example.ecommerceapp;
+package com.example.ecommerceapp.Interface;
 
 import com.example.ecommerceapp.Model.login_response_model;
 import com.example.ecommerceapp.Model.signup_response_model;

@@ -10,4 +10,6 @@
     <string name="err_mobile">Mobile Number not valid</string>
     <string name="error">Field is Required</string>
 
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
 </resources>

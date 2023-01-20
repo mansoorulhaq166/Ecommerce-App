@@ -19,6 +19,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.example.ecommerceapp.Apicontroller;
 import com.example.ecommerceapp.Model.login_response_model;
 import com.example.ecommerceapp.R;
@@ -35,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     TextView signUp, sign_report;
     EditText email, password;
     Button login;
-
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.button_login);
         password = (EditText) findViewById(R.id.enter_password);
         Drawable drawable = password.getCompoundDrawables()[2];
+
+        AwesomeValidation mAwesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        mAwesomeValidation.addValidation(this, R.id.enter_password, RegexTemplate.NOT_EMPTY, R.string.error);
+        mAwesomeValidation.addValidation(this, R.id.enter_email, RegexTemplate.NOT_EMPTY, R.string.error);
 
         password.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -89,7 +95,9 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                processlogin(email.getText().toString(), password.getText().toString());
+                if (mAwesomeValidation.validate()) {
+                    processlogin(email.getText().toString(), password.getText().toString());
+                }
             }
         });
     }
