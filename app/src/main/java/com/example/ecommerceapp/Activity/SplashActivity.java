@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.widget.ProgressBar;
 
 import com.example.ecommerceapp.R;
 
@@ -31,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
                 if (sharedPreferences.contains("username")) {
                     startActivity(new Intent(SplashActivity.this, Dashboard.class));
                 } else {
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 }
             }
         }, 2000);

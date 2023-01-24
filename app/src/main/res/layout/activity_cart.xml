@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CartActivity">
+
+    <LinearLayout
+        android:id="@+id/headerPanel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/design_default_color_error"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="ID"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Product Name"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_marginStart="3dp"
+            />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Price"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginStart="3dp"
+            />
+
+        <TextView
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Quantity"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginStart="3dp"
+            />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/headerPanel"
+        app:layout_constraintBottom_toTopOf="@id/InnerRelativeLayout"
+        android:layout_marginTop="10dp"
+        />
+    <LinearLayout
+        android:id="@+id/InnerRelativeLayout"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="50dp"
+        android:paddingLeft="5dp"
+        android:background="@color/design_default_color_error"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textColor="#ffff"
+            android:id="@+id/rateview"
+            android:textSize="18dp"
+            android:layout_marginRight="10dp"
+            android:text="Total Amount: PKR 0"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/white"
+            android:text="Checkout"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:layout_marginStart="10dp"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".Activity.CartActivity">-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/headerPanel"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@color/design_default_color_error"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="ID"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="170dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="3dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Product Name"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="18dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="3dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Price"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="55dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="3dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Quantity"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textStyle="bold" />-->
+<!--    </LinearLayout>-->
+
+<!--    <ScrollView-->
+<!--        android:id="@+id/scroller"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="600dp"-->
+<!--        android:layout_below="@+id/headerPanel">-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+<!--    </ScrollView>-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/InnerRelativeLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:paddingLeft="5dp"-->
+<!--        android:background="@color/design_default_color_error"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:gravity="center">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:textColor="#ffff"-->
+<!--            android:id="@+id/rateview"-->
+<!--            android:textSize="18dp"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:text="Total Amount : INR 600"/>-->
+
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:backgroundTint="@android:color/white"-->
+<!--            android:text="Checkout"-->
+<!--            android:padding="10dp"-->
+<!--            android:textColor="#000"/>-->
+<!--    </LinearLayout>-->
+<!--</RelativeLayout>-->

@@ -32,7 +32,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     TextView forgotPassword;
     TextView signUp, sign_report;
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         signUp.setText(sign_up);
 
         signUp.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     private void verifyuserexistence() {
         SharedPreferences sharedPreferences = getSharedPreferences("credentials",MODE_PRIVATE);
         if (sharedPreferences.contains("username")) {
-            startActivity(new Intent(MainActivity.this,Dashboard.class));
+            startActivity(new Intent(LoginActivity.this,Dashboard.class));
         }
     }
 
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                   //  editor.commit();
                     editor.apply();
 
-                    Intent logged = new Intent(MainActivity.this, Dashboard.class);
+                    Intent logged = new Intent(LoginActivity.this, Dashboard.class);
                     startActivity(logged);
                     finish();
                 } else if (result.equals("Doesnot_exist")) {

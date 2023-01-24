@@ -66,11 +66,10 @@ public class RegisterActivity extends AppCompatActivity {
         mAwesomeValidation.addValidation(this, R.id.reg_email, RegexTemplate.NOT_EMPTY, R.string.error);
         mAwesomeValidation.addValidation(this, R.id.reg_mobile, RegexTemplate.NOT_EMPTY, R.string.error);
 
-
         alreadyLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent login_Activity = new Intent(RegisterActivity.this, MainActivity.class);
+                Intent login_Activity = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(login_Activity);
             }
         });
@@ -78,7 +77,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mAwesomeValidation.validate()) {
-
                     userRegister(regEmail.getText().toString(), regMobile.getText().toString(), regPassword.getText().toString());
                 }
             }

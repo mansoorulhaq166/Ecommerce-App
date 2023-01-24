@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.RoomActivity">
+
+    <EditText
+        android:id="@+id/id_text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:hint="Product Id" />
+
+    <EditText
+        android:id="@+id/name_text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:hint="Product Name" />
+
+    <EditText
+        android:id="@+id/price_text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:hint="Product Price" />
+
+    <EditText
+        android:id="@+id/quantity_text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/price_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:hint="Quantity" />
+
+    <Button
+        android:id="@+id/save_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quantity_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Save to Room"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/grey_light"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/check_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/save_product"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Check Cart"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/grey_light"
+        android:padding="10dp" />
+    <TextView
+        android:id="@+id/lbl_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@id/check_cart"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text=""/>
+</RelativeLayout>
